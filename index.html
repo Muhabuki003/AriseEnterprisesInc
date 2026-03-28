@@ -29,45 +29,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Navigation ─────────────────────────────────────────────── */
-#main-nav {
-  position: fixed;
-  top: 0; left: 0; width: 100%;
-  z-index: 1000;
-  padding: 1.2rem 4vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(5,5,5,0.9);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,106,0,0.15);
-}
-#main-nav .nav-brand {
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text);
-  text-decoration: none;
-}
-#main-nav .nav-brand span { color: var(--fire-1); }
-#main-nav .nav-links {
-  display: flex;
-  gap: 2.5rem;
-}
-#main-nav .nav-links a {
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.25s;
-}
-#main-nav .nav-links a:hover, #main-nav .nav-links a.active {
-  color: var(--fire-1);
-}
-
 /* ── Canvas ─────────────────────────────────────────────────── */
 #canvas {
   position: fixed;
@@ -110,7 +71,6 @@ body {
   background: radial-gradient(ellipse 70% 70% at 50% 50%,
     rgba(5,5,5,0.1) 0%,
     rgba(5,5,5,0.75) 100%);
-  padding-top: 80px;
 }
 
 #p1 .eyebrow {
@@ -236,7 +196,6 @@ body {
   background: rgba(255,106,0,0.04);
   transition: all 0.28s ease;
   pointer-events: auto;
-  text-decoration: none;
 }
 
 .btn:hover {
@@ -359,19 +318,8 @@ body {
   font-weight: 600;
 }
 </style>
-<base target="_blank">
 </head>
 <body>
-
-<!-- Main Navigation -->
-<nav id="main-nav">
-  <a href="arise-spiral.html" class="nav-brand">Arise <span>Enterprises</span> Inc.</a>
-  <div class="nav-links">
-    <a href="arise-spiral.html" class="active">Home</a>
-    <a href="arise-story.html">Our Story</a>
-    <a href="arise-services.html">Services</a>
-  </div>
-</nav>
 
 <canvas id="canvas"></canvas>
 <div id="scroll-track"></div>
@@ -394,7 +342,7 @@ body {
     <h2>Powering<br>Houston for<br>30+ Years</h2>
     <p>Arise Enterprises Inc. is a full-service electrical company serving the Greater Houston and Dallas areas. We troubleshoot and repair electrical problems — delivering expert solutions you can trust.</p>
     <p>Licensed, experienced, and built on decades of getting it right the first time.</p>
-    <a href="arise-story.html" class="btn">Our Story</a>
+    <a href="arise-story.html" class="btn" style="text-decoration:none;">Our Story</a>
   </div>
 </div>
 
@@ -405,7 +353,7 @@ body {
     <h2>Full-Scope<br>Electrical<br>Services</h2>
     <p>From repairs to custom installations — we handle it all with precision and care. Breaker boxes, EV chargers, generators, accent lighting, sub-panels, audio &amp; video, and more.</p>
     <p>Free estimates on every job. Houston &amp; Dallas metro areas.</p>
-    <a href="arise-services.html" class="btn">See All Services</a>
+    <a href="arise-services.html" class="btn" style="text-decoration:none;">See All Services</a>
   </div>
 </div>
 
@@ -416,7 +364,7 @@ body {
     <h2>See It to<br>Believe It</h2>
     <p>Panel upgrades, landscape lighting, EV charger installs, whole-home rewires — every project finished clean and code-compliant.</p>
     <p>Serving residential and commercial clients across the Houston and Dallas metro areas.</p>
-    <a href="arise-services.html" class="btn">View Gallery</a>
+    <a href="tel:+12818598810" class="btn" style="text-decoration:none;">Call For Gallery</a>
   </div>
 </div>
 
@@ -441,6 +389,16 @@ body {
   <div class="dot" data-i="4" title="Contact"></div>
 </div>
 
+<!-- Top Nav -->
+<nav style="position:fixed;top:0;left:0;width:100%;z-index:200;padding:1.2rem 4vw;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,5,0.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,106,0,0.15);">
+  <a href="arise-spiral.html" style="font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:#f5f0e8;text-decoration:none;">Arise <span style="color:#ff6a00;">Enterprises</span> Inc.</a>
+  <div style="display:flex;gap:2.5rem;">
+    <a href="arise-spiral.html" style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:#ff6a00;text-decoration:none;font-weight:600;">Home</a>
+    <a href="arise-story.html" style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,240,232,0.45);text-decoration:none;font-weight:600;transition:color 0.25s;" onmouseover="this.style.color='#ff6a00'" onmouseout="this.style.color='rgba(245,240,232,0.45)'">Our Story</a>
+    <a href="arise-services.html" style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,240,232,0.45);text-decoration:none;font-weight:600;transition:color 0.25s;" onmouseover="this.style.color='#ff6a00'" onmouseout="this.style.color='rgba(245,240,232,0.45)'">Services</a>
+  </div>
+</nav>
+
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -464,7 +422,7 @@ scene.fog = new THREE.FogExp2(0x050505, 0.004);
 const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
 
 // ─────────────────────────────────────────────────────────────────
-// PARTICLE BACKBONE
+// PARTICLE BACKBONE (your code — unmodified math)
 // ─────────────────────────────────────────────────────────────────
 const COUNT  = 3500;
 const SPEED  = 1.5;
@@ -518,6 +476,7 @@ function updateParticles(time) {
   const cA2 = geo2.attributes.color;
 
   for (let i = 0; i < COUNT; i++) {
+    // ── YOUR BACKBONE ──────────────────────────────────────
     const angle  = (i / COUNT) * Math.PI * 2 * (1 + CHAOS * 0.1);
     const radius = (SIZE / 2) + Math.cos(i * 0.01 + time * SPEED) * (SIZE / 4);
     const x = Math.cos(angle) * radius;
@@ -526,6 +485,7 @@ function updateParticles(time) {
     const qX = x + (Math.random() - 0.5) * CHAOS;
     const qY = y + (Math.random() - 0.5) * CHAOS;
     const qZ = z + (Math.random() - 0.5) * CHAOS;
+    // ───────────────────────────────────────────────────────
 
     pA.setXYZ(i, qX, qY, qZ);
 
@@ -533,8 +493,8 @@ function updateParticles(time) {
     _col.setHSL(Math.max(0, Math.min(1, hue)), 1.0, 0.5);
     cA.setXYZ(i, _col.r, _col.g, _col.b);
 
-    // glow layer
-    pA2.setXYZ(i, x, y, z);
+    // glow layer — same positions, slightly warmer hue
+    pA2.setXYZ(i, x, y, z); // no random offset → clean bloom halos
     const hue2 = 0.04 + (y / SIZE) * 0.08;
     _col.setHSL(Math.max(0, Math.min(1, hue2)), 1.0, 0.6);
     cA2.setXYZ(i, _col.r, _col.g, _col.b);
@@ -547,15 +507,16 @@ function updateParticles(time) {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// CAMERA PATH
+// CAMERA PATH  —  orbits outside, descends with scroll
 // ─────────────────────────────────────────────────────────────────
-const ORBIT_R = SIZE * 1.9;
+const ORBIT_R = SIZE * 1.9;  // outside the spiral radius (SIZE/2 ≈ 35)
 let scrollT   = 0;
 
 function updateCamera(t) {
+  // 2 full orbits as camera descends
   const angle  = t * Math.PI * 4;
-  const camY   = SIZE       - t * SIZE * 2.3;
-  const lookY  = SIZE * 0.7 - t * SIZE * 1.4;
+  const camY   = SIZE       - t * SIZE * 2.3;   // top → bottom (overshoot slightly)
+  const lookY  = SIZE * 0.7 - t * SIZE * 1.4;   // look a bit ahead of cam position
 
   camera.position.set(
     Math.cos(angle) * ORBIT_R,
@@ -565,6 +526,7 @@ function updateCamera(t) {
   camera.lookAt(0, lookY, 0);
 }
 
+// Bootstrap camera at t=0
 updateCamera(0);
 
 // ─────────────────────────────────────────────────────────────────
