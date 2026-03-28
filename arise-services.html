@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Arise Enterprises Inc.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --fire-1:#ff6a00; --fire-2:#ff3366; --fire-3:#ffb347;
+  --bg:#050505; --surface:#0d0d0d; --surface2:#111;
+  --text:#f5f0e8; --dim:rgba(245,240,232,0.45);
+  --border:rgba(255,106,0,0.15); --orange:#ff6a00;
+}
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--text); font-family:'Raleway',sans-serif; }
+nav {
+  position:fixed; top:0; left:0; width:100%; z-index:100;
+  padding:1.2rem 4vw; display:flex; align-items:center; justify-content:space-between;
+  background:rgba(5,5,5,0.88); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-brand { font-family:'Cinzel',serif; font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text); text-decoration:none; }
+.nav-brand span { color:var(--orange); }
+.nav-links { display:flex; gap:2.5rem; }
+.nav-links a { font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--dim); text-decoration:none; font-weight:600; transition:color 0.25s; }
+.nav-links a:hover, .nav-links a.active { color:var(--orange); }
+.page-hero { padding:140px 4vw 70px; position:relative; overflow:hidden; border-bottom:1px solid var(--border); }
+.page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 50% 90% at 80% 50%, rgba(255,106,0,0.05) 0%, transparent 70%); pointer-events:none; }
+.hero-label { font-size:0.6rem; letter-spacing:0.5em; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:1rem; display:block; }
+.page-hero h1 { font-family:'Cinzel',serif; font-weight:900; font-size:clamp(2.5rem,6vw,5.5rem); line-height:1; letter-spacing:0.06em; text-transform:uppercase; background:linear-gradient(135deg,var(--fire-3) 0%,var(--fire-1) 60%,var(--fire-2) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; max-width:700px; }
+.page-hero p { margin-top:1.5rem; max-width:600px; font-size:0.95rem; line-height:1.85; color:var(--dim); font-weight:300; }
+.contact-cta { margin-top:2rem; display:flex; gap:1.2rem; flex-wrap:wrap; align-items:center; }
+.cta-btn { display:inline-block; padding:0.85rem 2rem; border:1px solid rgba(255,106,0,0.5); color:var(--fire-3); font-family:'Raleway',sans-serif; font-size:0.7rem; letter-spacing:0.28em; text-transform:uppercase; font-weight:600; cursor:pointer; text-decoration:none; background:rgba(255,106,0,0.04); transition:all 0.28s ease; }
+.cta-btn:hover { background:var(--fire-1); border-color:var(--fire-1); color:#050505; }
+.cta-btn.ghost { border-color:rgba(255,255,255,0.15); color:var(--dim); }
+.cta-btn.ghost:hover { border-color:var(--dim); color:var(--text); background:transparent; }
+.disclaimer { padding:1.4rem 4vw; background:var(--surface); border-bottom:1px solid var(--border); font-size:0.78rem; color:var(--dim); line-height:1.7; font-weight:300; }
+.disclaimer strong { color:var(--text); font-weight:600; }
+.disclaimer a { color:var(--orange); text-decoration:none; }
+.anchor-nav { padding:1.2rem 4vw; display:flex; flex-wrap:wrap; gap:0.6rem; border-bottom:1px solid var(--border); background:var(--surface); position:sticky; top:62px; z-index:50; }
+.anchor-nav a { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--dim); text-decoration:none; font-weight:600; padding:0.35rem 0.8rem; border:1px solid var(--border); transition:all 0.22s; }
+.anchor-nav a:hover { color:var(--orange); border-color:rgba(255,106,0,0.4); }
+.cat-section { padding:60px 4vw 40px; border-bottom:1px solid var(--border); }
+.cat-header { display:flex; align-items:baseline; gap:1.5rem; margin-bottom:2.5rem; }
+.cat-icon { font-size:1.8rem; }
+.cat-label { font-size:0.58rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--orange); font-weight:600; display:block; margin-bottom:0.3rem; }
+.cat-title { font-family:'Cinzel',serif; font-size:clamp(1.3rem,2.2vw,2rem); font-weight:600; letter-spacing:0.04em; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:1px; background:var(--border); border:1px solid var(--border); }
+.svc-card { background:var(--bg); padding:1.4rem 1.6rem; position:relative; overflow:hidden; transition:background 0.25s; }
+.svc-card:hover { background:var(--surface2); }
+.svc-card::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--orange); transition:width 0.3s ease; }
+.svc-card:hover::after { width:100%; }
+.svc-card .svc-num { font-size:0.58rem; letter-spacing:0.3em; color:rgba(255,106,0,0.35); font-weight:600; margin-bottom:0.5rem; display:block; }
+.svc-card .svc-name { font-size:0.82rem; font-weight:500; line-height:1.45; letter-spacing:0.03em; color:var(--text); }
+.cta-banner { padding:80px 4vw; text-align:center; position:relative; overflow:hidden; }
+.cta-banner::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255,106,0,0.07), transparent); pointer-events:none; }
+.eyebrow { font-size:0.6rem; letter-spacing:0.5em; text-transform:uppercase; color:var(--orange); font-weight:600; margin-bottom:1rem; display:block; }
+.cta-banner h2 { font-family:'Cinzel',serif; font-size:clamp(1.8rem,4vw,3.5rem); font-weight:600; letter-spacing:0.06em; margin-bottom:1.2rem; }
+.cta-banner p { color:var(--dim); font-size:0.9rem; margin-bottom:2.2rem; font-weight:300; max-width:480px; margin-left:auto; margin-right:auto; line-height:1.8; }
+.btn-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+footer { padding:2.5rem 4vw; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; border-top:1px solid var(--border); }
+footer p { font-size:0.72rem; color:var(--dim); }
+footer a { color:var(--orange); text-decoration:none; font-size:0.72rem; }
+@media(max-width:640px) { .anchor-nav { display:none; } .services-grid { grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="arise-spiral.html" class="nav-brand">Arise <span>Enterprises</span> Inc.</a>
+  <div class="nav-links">
+    <a href="arise-spiral.html">Home</a>
+    <a href="arise-story.html">Our Story</a>
+    <a href="arise-services.html" class="active">Services</a>
+  </div>
+</nav>
+<section class="page-hero">
+  <span class="hero-label">What We Do</span>
+  <h1>Our<br>Services</h1>
+  <p>The list below is not the limit to our expertise or the work we can provide. For any inquiries or to book an estimate, reach out directly — we respond as soon as possible.</p>
+  <div class="contact-cta">
+    <a href="tel:+12818598810" class="cta-btn">&#9742; (281) 859-8810</a>
+    <a href="mailto:Merkey@sbcglobal.net" class="cta-btn ghost">Merkey@sbcglobal.net</a>
+  </div>
+</section>
+<p class="disclaimer"><strong>Free estimates on all services.</strong> This list is subject to change and does not represent the full scope of our capabilities. For services not listed, call <a href="tel:+12818598810">(281) 859-8810</a> or email <a href="mailto:Merkey@sbcglobal.net">Merkey@sbcglobal.net</a>.</p>
+<nav class="anchor-nav">
+  <a href="#fans">Fans</a>
+  <a href="#fixtures">Fixtures</a>
+  <a href="#holiday">Holiday</a>
+  <a href="#interior">Interior Lighting</a>
+  <a href="#exterior">Exterior Lighting</a>
+  <a href="#panel">Electrical Panel</a>
+  <a href="#wiring">Wiring &amp; Power</a>
+  <a href="#specialty">Specialty</a>
+</nav>
+
+<section class="cat-section" id="fans">
+  <div class="cat-header"><span class="cat-icon">🌀</span><div><span class="cat-label">Category 01</span><h2 class="cat-title">Fans</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Attic / Whole House Fan Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Attic / Whole House Fan Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">03</span><div class="svc-name">Bathroom Fan Installation</div></div>
+    <div class="svc-card"><span class="svc-num">04</span><div class="svc-name">Bathroom Fan Repair</div></div>
+    <div class="svc-card"><span class="svc-num">05</span><div class="svc-name">Bathroom Fan Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">06</span><div class="svc-name">Ceiling Fan Installation</div></div>
+    <div class="svc-card"><span class="svc-num">07</span><div class="svc-name">Ceiling Fan Repair</div></div>
+    <div class="svc-card"><span class="svc-num">08</span><div class="svc-name">Ceiling Fan Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">09</span><div class="svc-name">Exhaust Fan Installation</div></div>
+    <div class="svc-card"><span class="svc-num">10</span><div class="svc-name">Exhaust Fan Repair</div></div>
+    <div class="svc-card"><span class="svc-num">11</span><div class="svc-name">Exhaust Fan Replacement</div></div>
+  </div>
+</section>
+
+<section class="cat-section" id="fixtures">
+  <div class="cat-header"><span class="cat-icon">✨</span><div><span class="cat-label">Category 02</span><h2 class="cat-title">Chandeliers &amp; Fixtures</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Chandelier Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Light Fixture Installation</div></div>
+    <div class="svc-card"><span class="svc-num">03</span><div class="svc-name">Light Fixture Repair</div></div>
+    <div class="svc-card"><span class="svc-num">04</span><div class="svc-name">Light Fixture Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">05</span><div class="svc-name">Pendant Installation</div></div>
+    <div class="svc-card"><span class="svc-num">06</span><div class="svc-name">Pendant Repair</div></div>
+    <div class="svc-card"><span class="svc-num">07</span><div class="svc-name">Pendant Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">08</span><div class="svc-name">Range Hood Installation</div></div>
+    <div class="svc-card"><span class="svc-num">09</span><div class="svc-name">Range Hood Replacement</div></div>
+  </div>
+</section>
+
+<section class="cat-section" id="holiday">
+  <div class="cat-header"><span class="cat-icon">🎄</span><div><span class="cat-label">Category 03</span><h2 class="cat-title">Holiday Lighting</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Christmas Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Christmas Lighting Repair</div></div>
+  </div>
+</section>
+
+<section class="cat-section" id="interior">
+  <div class="cat-header"><span class="cat-icon">💡</span><div><span class="cat-label">Category 04</span><h2 class="cat-title">Interior Lighting</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Fluorescent Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Fluorescent Lighting Repair</div></div>
+    <div class="svc-card"><span class="svc-num">03</span><div class="svc-name">Fluorescent Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">04</span><div class="svc-name">Interior Ceiling Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">05</span><div class="svc-name">Interior Ceiling Lighting Repair</div></div>
+    <div class="svc-card"><span class="svc-num">06</span><div class="svc-name">Interior Ceiling Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">07</span><div class="svc-name">Interior LED Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">08</span><div class="svc-name">Interior LED Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">09</span><div class="svc-name">Interior Wall Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">10</span><div class="svc-name">Interior Wall Lighting Repair</div></div>
+    <div class="svc-card"><span class="svc-num">11</span><div class="svc-name">Interior Wall Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">12</span><div class="svc-name">LED Interior Light Conversion</div></div>
+    <div class="svc-card"><span class="svc-num">13</span><div class="svc-name">Recessed Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">14</span><div class="svc-name">Recessed Lighting Repair</div></div>
+    <div class="svc-card"><span class="svc-num">15</span><div class="svc-name">Recessed Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">16</span><div class="svc-name">Track Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">17</span><div class="svc-name">Track Lighting Repair</div></div>
+    <div class="svc-card"><span class="svc-num">18</span><div class="svc-name">Track Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">19</span><div class="svc-name">Under Cabinet Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">20</span><div class="svc-name">Under Cabinet Lighting Repair</div></div>
+    <div class="svc-card"><span class="svc-num">21</span><div class="svc-name">Under Cabinet Lighting Replacement</div></div>
+  </div>
+</section>
+
+<section class="cat-section" id="exterior">
+  <div class="cat-header"><span class="cat-icon">🏡</span><div><span class="cat-label">Category 05</span><h2 class="cat-title">Exterior Lighting</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Exterior Hanging Light Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Exterior Hanging Light Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">03</span><div class="svc-name">Exterior LED Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">04</span><div class="svc-name">Exterior LED Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">05</span><div class="svc-name">Exterior Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">06</span><div class="svc-name">Exterior Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">07</span><div class="svc-name">Exterior Wall Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">08</span><div class="svc-name">Exterior Wall Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">09</span><div class="svc-name">Flood Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">10</span><div class="svc-name">Flood Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">11</span><div class="svc-name">Landscape Lighting Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">12</span><div class="svc-name">Security Lighting Installation</div></div>
+    <div class="svc-card"><span class="svc-num">13</span><div class="svc-name">Security Lighting Replacement</div></div>
+  </div>
+</section>
+
+<section class="cat-section" id="panel">
+  <div class="cat-header"><span class="cat-icon">⚡</span><div><span class="cat-label">Category 06</span><h2 class="cat-title">Electrical Panel</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Electrical Panel Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Electrical Panel Repair</div></div>
+    <div class="svc-card"><span class="svc-num">03</span><div class="svc-name">Electrical Panel Upgrade</div></div>
+    <div class="svc-card"><span class="svc-num">04</span><div class="svc-name">Electrical Wiring Installation</div></div>
+    <div class="svc-card"><span class="svc-num">05</span><div class="svc-name">Electrical Wiring Upgrade</div></div>
+    <div class="svc-card"><span class="svc-num">06</span><div class="svc-name">Meter Socket Installation</div></div>
+  </div>
+</section>
+
+<section class="cat-section" id="wiring">
+  <div class="cat-header"><span class="cat-icon">🔌</span><div><span class="cat-label">Category 07</span><h2 class="cat-title">Wiring &amp; Power</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Light Switch Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Light Switch Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">03</span><div class="svc-name">Outlet Installation</div></div>
+    <div class="svc-card"><span class="svc-num">04</span><div class="svc-name">Outlet Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">05</span><div class="svc-name">Spa Wire Installation</div></div>
+    <div class="svc-card"><span class="svc-num">06</span><div class="svc-name">Spa Wire Repair</div></div>
+  </div>
+</section>
+
+<section class="cat-section" id="specialty">
+  <div class="cat-header"><span class="cat-icon">🔋</span><div><span class="cat-label">Category 08</span><h2 class="cat-title">Specialty</h2></div></div>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-num">01</span><div class="svc-name">Electric Wall Heater Installation</div></div>
+    <div class="svc-card"><span class="svc-num">02</span><div class="svc-name">Electric Wall Heater Replacement</div></div>
+    <div class="svc-card"><span class="svc-num">03</span><div class="svc-name">Off Grid Solar System Assembly</div></div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <span class="eyebrow">Free Estimates — No Obligation</span>
+  <h2>Don't See<br>What You Need?</h2>
+  <p>This list doesn't cover everything we do. Give us a call or send an email — if it's electrical, there's a good chance we handle it.</p>
+  <div class="btn-row">
+    <a href="tel:+12818598810" class="cta-btn">&#9742; (281) 859-8810</a>
+    <a href="mailto:Merkey@sbcglobal.net" class="cta-btn ghost">Send an Email</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Arise Enterprises Inc. — Cypress, TX 77433</p>
+  <a href="tel:+12818598810">(281) 859-8810</a>
+</footer>
+</body>
+</html>
